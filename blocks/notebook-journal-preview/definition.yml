@@ -1,0 +1,63 @@
+name: notebook-journal-preview
+title: "Notebook Journal Preview"
+description: "3-up grid of recent essays with cover image, date, category tag, headline, and excerpt. Repeater of posts."
+category: features
+tags: [notebook, journal, blog, preview]
+fields:
+  eyebrow:
+    type: text
+    label: "Eyebrow Text"
+    default: "From the Journal"
+  heading:
+    type: text
+    label: "Heading"
+    default: "Recent essays & notes."
+  description:
+    type: textarea
+    label: "Description"
+    default: "Slow-cooked thoughts on craft, design, and the patient business of making."
+  archive_link_text:
+    type: text
+    label: "Archive Link Text"
+    default: "All entries →"
+  archive_link_url:
+    type: url
+    label: "Archive Link URL"
+    default: "/journal"
+  posts:
+    type: repeater
+    label: "Posts (3 recommended)"
+    max: 6
+    fields:
+      url:
+        type: url
+        label: "Post URL"
+        default: "/journal/example-post"
+      image_url:
+        type: image
+        label: "Cover Image URL"
+        default: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80"
+      image_alt:
+        type: text
+        label: "Image Alt"
+        default: "Post cover image"
+      date_iso:
+        type: text
+        label: "Date (ISO, e.g. 2026-04-18)"
+        default: "2026-04-18"
+      date_display:
+        type: text
+        label: "Date (Display, e.g. April 18, 2026)"
+        default: "April 18, 2026"
+      category:
+        type: text
+        label: "Category Tag"
+        default: "Craft"
+      title:
+        type: text
+        label: "Title"
+        default: "Post title"
+      excerpt:
+        type: textarea
+        label: "Excerpt"
+        default: "A short, evocative excerpt — 1-2 sentences."

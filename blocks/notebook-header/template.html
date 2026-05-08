@@ -1,0 +1,64 @@
+<header x-data="{ open: false }" class="sticky top-0 z-40 backdrop-blur supports-[backdrop-filter]:bg-paper-100/80 bg-paper-100/95 border-b border-paper-300/70">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 lg:px-8">
+        <a href="/" class="group flex items-center gap-x-3">
+            <span class="grid size-9 place-items-center rounded-full bg-ink-900 text-paper-100 font-display text-[1.05rem] leading-none">{{ $logo_initial ?? 'm.' }}</span>
+            <span class="font-display text-[1.25rem] tracking-tight text-ink-900">{{ $logo_text ?? 'Mara Ellis' }}</span>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-x-9 text-sm text-ink-700">
+            @if (!empty($nav_label_1))<a href="{{ $nav_url_1 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_1 }}</a>@endif
+            @if (!empty($nav_label_2))<a href="{{ $nav_url_2 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_2 }}</a>@endif
+            @if (!empty($nav_label_3))<a href="{{ $nav_url_3 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_3 }}</a>@endif
+            @if (!empty($nav_label_4))<a href="{{ $nav_url_4 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_4 }}</a>@endif
+            @if (!empty($nav_label_5))<a href="{{ $nav_url_5 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_5 }}</a>@endif
+        </nav>
+
+        <div class="flex items-center gap-x-3">
+            <a href="{{ $cta_url ?? '/contact' }}"
+               class="hidden sm:inline-flex items-center gap-x-2 rounded-full bg-ink-900 px-4 py-2 text-sm font-medium text-paper-50 ring-1 ring-ink-900 transition hover:-translate-y-0.5 hover:bg-ink-800">
+                {{ $cta_text ?? 'Say hello' }}
+                <svg viewBox="0 0 16 16" class="size-3.5" fill="none" aria-hidden="true">
+                    <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
+            <button type="button" @click="open = true"
+                    class="md:hidden grid place-items-center size-10 rounded-full text-ink-800 ring-1 ring-paper-300 hover:bg-paper-200 transition" aria-label="Open menu">
+                <svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden="true">
+                    <path d="M3 7h18M3 12h18M3 17h18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    {{-- Mobile drawer --}}
+    <div x-show="open" x-cloak x-transition.opacity class="fixed inset-0 z-50 md:hidden" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-ink-900/40 backdrop-blur-sm" @click="open = false" aria-hidden="true"></div>
+        <div x-show="open" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="translate-x-0" x-transition:leave-end="translate-x-full"
+             class="absolute right-0 top-0 h-full w-[88%] max-w-sm bg-paper-50 shadow-lift flex flex-col">
+            <div class="flex items-center justify-between p-5 border-b border-paper-300/70">
+                <span class="font-display text-xl text-ink-900 tracking-tight">{{ $logo_text ?? 'Mara Ellis' }}</span>
+                <button type="button" @click="open = false" class="grid size-10 place-items-center rounded-full text-ink-800 ring-1 ring-paper-300 hover:bg-paper-200 transition" aria-label="Close menu">
+                    <svg viewBox="0 0 24 24" fill="none" class="size-5" aria-hidden="true">
+                        <path d="M6 6l12 12M6 18L18 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex-1 overflow-y-auto px-5 py-7 space-y-1">
+                @if (!empty($nav_label_1))<a href="{{ $nav_url_1 ?? '#' }}" class="block py-3 font-display text-3xl text-ink-900 hover:text-ember-700 transition">{{ $nav_label_1 }}</a>@endif
+                @if (!empty($nav_label_2))<a href="{{ $nav_url_2 ?? '#' }}" class="block py-3 font-display text-3xl text-ink-900 hover:text-ember-700 transition">{{ $nav_label_2 }}</a>@endif
+                @if (!empty($nav_label_3))<a href="{{ $nav_url_3 ?? '#' }}" class="block py-3 font-display text-3xl text-ink-900 hover:text-ember-700 transition">{{ $nav_label_3 }}</a>@endif
+                @if (!empty($nav_label_4))<a href="{{ $nav_url_4 ?? '#' }}" class="block py-3 font-display text-3xl text-ink-900 hover:text-ember-700 transition">{{ $nav_label_4 }}</a>@endif
+                @if (!empty($nav_label_5))<a href="{{ $nav_url_5 ?? '#' }}" class="block py-3 font-display text-3xl text-ink-900 hover:text-ember-700 transition">{{ $nav_label_5 }}</a>@endif
+            </nav>
+            <div class="p-5 border-t border-paper-300/70">
+                <a href="{{ $cta_url ?? '/contact' }}" class="flex items-center justify-center gap-x-2 rounded-full bg-ink-900 px-5 py-3.5 text-sm font-medium text-paper-50 transition hover:bg-ink-800">
+                    {{ $cta_text ?? 'Say hello' }}
+                    <svg viewBox="0 0 16 16" class="size-3.5" fill="none" aria-hidden="true">
+                        <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+    <style>[x-cloak] { display: none !important; }</style>
+</header>

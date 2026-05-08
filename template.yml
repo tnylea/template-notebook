@@ -1,0 +1,18 @@
+slug: notebook-portfolio
+title: "Notebook — Personal Blog & Portfolio"
+description: "An editorial, paper-warm personal blog and portfolio template. Sand & cocoa palette, Playfair Display + Inter typography, soft brushed accents, and quietly confident editorial composition."
+version: "0.2.0"
+author: "CMS Max"
+layout: notebook-default
+theme:
+  primary_color: "#99694e"
+  secondary_color: "#cabdae"
+  primary_font: inter
+  google_fonts:
+    - inter
+    - cormorant-garamond
+slot_blocks:
+  banner: notebook-banner
+  header: notebook-header
+  footer_stats: notebook-footer-stats
+  footer: notebook-footer

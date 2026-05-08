@@ -1,0 +1,22 @@
+name: notebook-quote
+title: "Notebook Pull Quote"
+description: "Centered Fraunces pull quote on dotted background with author avatar, name, and title."
+category: features
+tags: [notebook, quote, testimonial]
+fields:
+  quote:
+    type: textarea
+    label: "Quote Text"
+    default: "Working with Theo is like watching someone iterate on a single button-hover state for the third hour — you don't notice the difference until you do, and then you can't unsee it."
+  author_name:
+    type: text
+    label: "Author Name"
+    default: "Jordan Tate"
+  author_title:
+    type: text
+    label: "Author Title"
+    default: "Co-founder, Field & Form"
+  author_initials:
+    type: text
+    label: "Author Initials (for avatar)"
+    default: "JT"

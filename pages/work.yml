@@ -1,0 +1,12 @@
+slug: "work"
+title: "Work"
+browser_title: "Selected Work — Theo Okafor · Product, brand &amp; web design"
+meta_description: "A complete archive of projects designed, built, and shipped by Theo Okafor — from type foundries and reading apps to quietly-loved indie web tools."
+layout: notebook-default
+content:
+    - html: _sections/work/hero.html
+      name: "Work — Hero"
+    - html: _sections/work/projects.html
+      name: "Work — Project Grid"
+    - html: _sections/work/cta.html
+      name: "Work — CTA"

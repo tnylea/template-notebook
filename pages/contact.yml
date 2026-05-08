@@ -1,0 +1,12 @@
+slug: "contact"
+title: "Contact"
+browser_title: "Contact Theo Okafor — Available for select projects"
+meta_description: "Get in touch for project work, talks, editorial collaborations, or to say hello. Theo Okafor takes on a small handful of projects each year."
+layout: notebook-default
+content:
+    - html: _sections/contact/hero.html
+      name: "Contact — Hero"
+    - html: _sections/contact/form.html
+      name: "Contact — Form"
+    - html: _sections/contact/elsewhere.html
+      name: "Contact — Elsewhere"

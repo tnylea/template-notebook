@@ -1,0 +1,98 @@
+name: notebook-hero
+title: "Notebook Hero"
+description: "Editorial hero — eyebrow tags, italic-emphasis Playfair headline with brush underline, dual CTAs, large rounded portrait, two floating cards (currently + latest essay), and a trusted-by logo row."
+category: heroes
+tags: [notebook, hero]
+fields:
+  tag_1:
+    type: text
+    label: "Eyebrow Tag 1"
+    default: "Designer"
+  tag_2:
+    type: text
+    label: "Eyebrow Tag 2"
+    default: "Builder"
+  tag_3:
+    type: text
+    label: "Eyebrow Tag 3"
+    default: "Writer"
+  title_html:
+    type: richeditor
+    label: "Title HTML — wrap italic phrases in <em>, the emphasized brown word in <span class=\"text-ember-700 brush-underline\">…</span>"
+    default: "I design thoughtful digital experiences <em>and write about <span class=\"text-ember-700 brush-underline\">them</span>.</em>"
+  description:
+    type: textarea
+    label: "Description"
+    default: "I'm Theo — a designer and developer who builds clean, useful products for the web and writes about the process, the decisions, and what I'm learning along the way."
+  primary_button_text:
+    type: text
+    label: "Primary Button Text"
+    default: "Explore my work"
+  primary_button_url:
+    type: url
+    label: "Primary Button URL"
+    default: "/work"
+  secondary_button_text:
+    type: text
+    label: "Secondary Button Text"
+    default: "Read the latest essay"
+  secondary_button_url:
+    type: url
+    label: "Secondary Button URL"
+    default: "/journal"
+  portrait_url:
+    type: image
+    label: "Portrait Image URL"
+    default: "/notebook/theo.jpg"
+  portrait_alt:
+    type: text
+    label: "Portrait Alt Text"
+    default: "Portrait of Theo in a cream sweatshirt with a small gold pendant, sitting in a warm-lit room with a bookshelf behind"
+  show_currently_card:
+    type: toggle
+    label: "Show 'Currently' Floating Card"
+    default: true
+  currently_label:
+    type: text
+    label: "Currently Card — Label"
+    default: "Currently"
+  currently_title:
+    type: text
+    label: "Currently Card — Title"
+    default: "Designing a shipping dashboard"
+  currently_progress:
+    type: number
+    label: "Currently Card — Progress %"
+    default: 60
+  show_essay_card:
+    type: toggle
+    label: "Show 'Latest Essay' Floating Card"
+    default: true
+  essay_label:
+    type: text
+    label: "Essay Card — Label"
+    default: "Latest Essay"
+  essay_title:
+    type: text
+    label: "Essay Card — Title"
+    default: "The quiet craft of shipping software"
+  essay_url:
+    type: url
+    label: "Essay Card — URL"
+    default: "/journal/the-quiet-craft-of-shipping"
+  essay_meta:
+    type: text
+    label: "Essay Card — Meta (e.g. read time)"
+    default: "5 min read"
+  essay_thumbnail:
+    type: image
+    label: "Essay Card — Thumbnail Image"
+    default: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=400&q=80"
+  show_trusted_by:
+    type: toggle
+    label: "Show 'Trusted By' Logo Row"
+    default: true
+  trusted_label:
+    type: text
+    label: "Trusted-By Label"
+    default: "Trusted by teams at"

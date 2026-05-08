@@ -1,0 +1,49 @@
+<footer class="bg-ink-900 text-paper-200">
+    <div class="mx-auto max-w-7xl px-4 lg:px-8">
+        <div class="grid gap-12 py-16 md:grid-cols-12">
+            <div class="md:col-span-5">
+                <a href="/" class="flex items-center gap-x-3">
+                    <span class="grid size-10 place-items-center rounded-full bg-paper-50 text-ink-900 font-display text-[1.1rem] leading-none">{{ $logo_initial ?? 'm.' }}</span>
+                    <span class="font-display text-xl text-paper-50 tracking-tight">{{ $logo_text ?? 'Mara Ellis' }}</span>
+                </a>
+                <p class="mt-5 max-w-sm text-paper-300 leading-relaxed">{{ $tagline ?? '' }}</p>
+
+                <form class="mt-7 flex max-w-md items-center gap-x-2 rounded-full border border-paper-700 bg-ink-800 p-1.5">
+                    <input type="email" required placeholder="you@example.com" class="flex-1 bg-transparent px-4 py-2 text-sm text-paper-50 placeholder:text-paper-500 focus:outline-none" />
+                    <button type="submit" class="rounded-full bg-ember-500 px-5 py-2 text-sm font-medium text-paper-50 transition hover:bg-ember-600">Subscribe</button>
+                </form>
+                <p class="mt-3 text-xs text-paper-500">{{ $newsletter_label ?? '' }}</p>
+            </div>
+
+            <div class="md:col-span-2">
+                <p class="font-display text-paper-50 text-base mb-4">Site</p>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="/work" class="ink-link text-paper-300 hover:text-paper-50 transition">Work</a></li>
+                    <li><a href="/journal" class="ink-link text-paper-300 hover:text-paper-50 transition">Journal</a></li>
+                    <li><a href="/about" class="ink-link text-paper-300 hover:text-paper-50 transition">About</a></li>
+                    <li><a href="/now" class="ink-link text-paper-300 hover:text-paper-50 transition">Now</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-2">
+                <p class="font-display text-paper-50 text-base mb-4">Elsewhere</p>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="https://twitter.com" class="ink-link text-paper-300 hover:text-paper-50 transition">Twitter</a></li>
+                    <li><a href="https://github.com" class="ink-link text-paper-300 hover:text-paper-50 transition">GitHub</a></li>
+                    <li><a href="https://read.cv" class="ink-link text-paper-300 hover:text-paper-50 transition">Read.cv</a></li>
+                    <li><a href="/feed.xml" class="ink-link text-paper-300 hover:text-paper-50 transition">RSS</a></li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-3">
+                <p class="font-display text-paper-50 text-base mb-4">A note</p>
+                <p class="text-sm text-paper-300 leading-relaxed">{{ $studio_note ?? '' }}</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col-reverse items-start justify-between gap-4 border-t border-paper-700/50 py-6 text-xs text-paper-500 sm:flex-row sm:items-center">
+            <p>© {{ date('Y') }} {{ $copyright ?? '' }}</p>
+            <p>Crafted with <span class="text-ember-400">♥</span> and CMS&nbsp;Max.</p>
+        </div>
+    </div>
+</footer>

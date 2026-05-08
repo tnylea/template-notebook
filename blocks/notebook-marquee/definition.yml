@@ -1,0 +1,10 @@
+name: notebook-marquee
+title: "Notebook Marquee"
+description: "Italic-Fraunces auto-scrolling marquee of magazine names or partner brands, separated by ember stars."
+category: features
+tags: [notebook, marquee, social-proof]
+fields:
+  items:
+    type: text
+    label: "Items (separated by `|`)"
+    default: "The Verge | It's Nice That | Offscreen Magazine | Hover States | The Cut | Type Studies | Dense Discovery"

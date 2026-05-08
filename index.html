@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>notebook — Theo Okafor · Designer, Builder, Writer</title>
+    <meta name="description" content="The personal notebook of Theo Okafor — a designer and developer who builds clean, useful products for the web and writes about the process, the decisions, and what he's learning along the way." />
+    <meta name="theme-color" content="#f8f5f2" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300..700&display=swap" />
+
+    <script src="https://unpkg.com/htmlincludejs"></script>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <style type="text/tailwindcss">
+      @theme {
+        /* Sand/Paper — warm cream tones, anchored at paper-100 = #f8f5f2 */
+        --color-paper-50:  #fdfbf9;
+        --color-paper-100: #f8f5f2;
+        --color-paper-200: #f0e9e2;
+        --color-paper-300: #e6dccf;
+        --color-paper-400: #d8c9b8;
+        --color-paper-500: #bea58c;
+        --color-paper-600: #998571;
+        --color-paper-700: #766556;
+        --color-paper-800: #52473d;
+        --color-paper-900: #322c25;
+        --color-paper-950: #1a1715;
+
+        /* Ink — primary text is pure black */
+        --color-ink-50:  #f5f4f2;
+        --color-ink-100: #e7e5e1;
+        --color-ink-200: #cac6bd;
+        --color-ink-300: #a6a097;
+        --color-ink-400: #7a746b;
+        --color-ink-500: #524d46;
+        --color-ink-600: #3a3631;
+        --color-ink-700: #1f1d1a;
+        --color-ink-800: #0a0908;
+        --color-ink-900: #000000;
+        --color-ink-950: #000000;
+
+        /* Ember — warm brown primary, anchored at ember-700 = #99694e */
+        --color-ember-50:  #faf3ec;
+        --color-ember-100: #f4e3d2;
+        --color-ember-200: #e6c5a9;
+        --color-ember-300: #d4a47e;
+        --color-ember-400: #c08862;
+        --color-ember-500: #ab7553;
+        --color-ember-600: #a06c4f;
+        --color-ember-700: #99694e;
+        --color-ember-800: #7d553f;
+        --color-ember-900: #5d4030;
+
+        /* Sage — quiet beige secondary, anchored at sage-300 = #cabdae */
+        --color-sage-100: #ebe5dd;
+        --color-sage-200: #dbd0c1;
+        --color-sage-300: #cabdae;
+        --color-sage-500: #988572;
+        --color-sage-700: #544840;
+
+        --font-sans: "Inter", "InterVariable", ui-sans-serif, system-ui, sans-serif;
+        --font-display: "Playfair Display", ui-serif, Georgia, serif;
+        --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+        --shadow-paper: 0 1px 1px rgb(43 37 28 / 0.04), 0 6px 14px -4px rgb(43 37 28 / 0.06), 0 18px 32px -10px rgb(43 37 28 / 0.10);
+        --shadow-lift:  0 1px 1px rgb(43 37 28 / 0.05), 0 12px 24px -6px rgb(43 37 28 / 0.10), 0 30px 60px -16px rgb(43 37 28 / 0.18);
+        --shadow-ember: 0 8px 22px -8px rgb(153 105 78 / 0.45), 0 16px 36px -16px rgb(153 105 78 / 0.30);
+      }
+
+      html, body {
+        font-family: var(--font-sans);
+        background: var(--color-paper-100);
+        color: var(--color-ink-900);
+      }
+      html { scroll-behavior: smooth; }
+
+      .font-display { font-family: var(--font-display); font-optical-sizing: auto; }
+
+      @utility eyebrow {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        font-size: 0.72rem;
+        color: var(--color-paper-700);
+      }
+
+      /* Hand-drawn brush underline */
+      .brush-underline {
+        background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 8' preserveAspectRatio='none'><path d='M2 5 C 30 1, 70 7, 105 4 S 175 7, 198 3' stroke='%2399694e' stroke-width='3' fill='none' stroke-linecap='round' /></svg>");
+        background-repeat: no-repeat;
+        background-position: 0 95%;
+        background-size: 100% 0.4em;
+        padding-bottom: 0.15em;
+      }
+
+      @utility rule {
+        display: inline-block;
+        width: 1.75rem;
+        height: 1px;
+        background: var(--color-ember-700);
+        margin-right: 0.65rem;
+        vertical-align: middle;
+      }
+
+      /* Subtle paper-grain noise — fixed, no pointer events */
+      .grain::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 100;
+        opacity: 0.045;
+        mix-blend-mode: multiply;
+        background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+        background-size: 200px 200px;
+      }
+
+      /* Reveal-on-scroll initial states — only when JS confirms control */
+      .js [data-reveal] { opacity: 0; transform: translateY(20px); }
+      .js [data-reveal-stagger] > * { opacity: 0; transform: translateY(16px); }
+
+      /* Ink underline on links — animated draw */
+      .ink-link {
+        position: relative;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-size: 100% 1px;
+        background-repeat: no-repeat;
+        background-position: 0 100%;
+        transition: background-size 0.4s ease;
+      }
+      .ink-link:hover { background-size: 0% 1px; background-position: 100% 100%; }
+
+      /* Paper card */
+      .paper-card {
+        background: var(--color-paper-50);
+        border: 1px solid var(--color-paper-300);
+        box-shadow: var(--shadow-paper);
+      }
+
+      /* Marquee */
+      .marquee { display: flex; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+      .marquee-track {
+        display: flex; gap: 3.5rem;
+        animation: nb-marquee 50s linear infinite;
+        flex-shrink: 0; padding-right: 3.5rem;
+      }
+      @keyframes nb-marquee {
+        from { transform: translateX(0); }
+        to   { transform: translateX(-100%); }
+      }
+
+      /* Pencil / highlight underline for emphasis */
+      .pencil {
+        background-image: linear-gradient(transparent 65%, rgba(153,105,78,0.30) 65%, rgba(153,105,78,0.30) 95%, transparent 95%);
+        padding: 0 0.05em;
+      }
+
+      /* Soft float */
+      @keyframes nb-float {
+        0%, 100% { transform: translateY(0); }
+        50%      { transform: translateY(-6px); }
+      }
+      .animate-float { animation: nb-float 5s ease-in-out infinite; }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+        [data-reveal], [data-reveal-stagger] > * { opacity: 1 !important; transform: none !important; }
+      }
+    </style>
+  </head>
+  <body class="grain isolate bg-paper-100 text-ink-800">
+    <script>document.documentElement.classList.add("js");</script>
+
+    <include src="_sections/_shared/banner.html"></include>
+    <include src="_sections/_shared/header.html"></include>
+
+    <main>
+      <include src="_sections/home/hero.html"></include>
+      <include src="_sections/home/marquee.html"></include>
+      <include src="_sections/home/featured-work.html"></include>
+      <include src="_sections/home/about-snippet.html"></include>
+      <include src="_sections/home/journal.html"></include>
+      <include src="_sections/home/quote.html"></include>
+      <include src="_sections/home/cta.html"></include>
+    </main>
+
+    <include src="_sections/_shared/footer-stats.html"></include>
+    <include src="_sections/_shared/footer.html"></include>
+
+    <script src="_assets/nb.js"></script>
+  </body>
+</html>

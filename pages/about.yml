@@ -1,0 +1,18 @@
+slug: "about"
+title: "About"
+browser_title: "About Theo Okafor — Designer, Builder & Internet Maker · Brooklyn, NY"
+meta_description: "Theo Okafor is a designer and builder based in Brooklyn, New York. He ships patient products on the open web, co-writes Coda the newsletter, and is the dad of two who keep him honest."
+layout: notebook-default
+content:
+    - html: _sections/about/hero.html
+      name: "About — Hero"
+    - html: _sections/about/bio.html
+      name: "About — Bio"
+    - html: _sections/about/timeline.html
+      name: "About — Timeline"
+    - html: _sections/about/values.html
+      name: "About — Values"
+    - html: _sections/about/beyond-work.html
+      name: "About — Beyond Work"
+    - html: _sections/about/cta.html
+      name: "About — CTA"

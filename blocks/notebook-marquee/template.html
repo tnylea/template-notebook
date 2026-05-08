@@ -1,0 +1,20 @@
+@php
+    $raw = $items ?? "The Verge | It's Nice That | Offscreen Magazine | Hover States | The Cut | Type Studies | Dense Discovery";
+    $tokens = array_values(array_filter(array_map('trim', explode('|', $raw)), fn ($s) => $s !== ''));
+@endphp
+<section class="border-y border-paper-300/70 bg-paper-50 py-7" aria-label="Featured in">
+    <div class="marquee">
+        <div class="marquee-track font-display text-2xl text-ink-400 italic">
+            @foreach ($tokens as $i => $t)
+                <span>{!! str_replace(' ', '&nbsp;', e($t)) !!}</span>
+                <span class="text-ember-500">✦</span>
+            @endforeach
+        </div>
+        <div class="marquee-track font-display text-2xl text-ink-400 italic" aria-hidden="true">
+            @foreach ($tokens as $i => $t)
+                <span>{!! str_replace(' ', '&nbsp;', e($t)) !!}</span>
+                <span class="text-ember-500">✦</span>
+            @endforeach
+        </div>
+    </div>
+</section>

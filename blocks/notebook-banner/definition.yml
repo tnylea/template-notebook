@@ -1,0 +1,26 @@
+name: notebook-banner
+title: "Notebook Banner"
+description: "Top announcement banner — single line of intro text with optional link."
+category: headers
+tags: [notebook, banner]
+fields:
+  intro_text:
+    type: text
+    label: "Intro Text"
+    default: "Now reading"
+  link_text:
+    type: text
+    label: "Link Text"
+    default: "The quiet craft of shipping"
+  link_url:
+    type: url
+    label: "Link URL"
+    default: "/journal/the-quiet-craft-of-shipping"
+  secondary_text:
+    type: text
+    label: "Secondary Text"
+    default: "Available for select projects"
+  secondary_url:
+    type: url
+    label: "Secondary URL"
+    default: "/contact"

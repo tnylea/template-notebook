@@ -1,0 +1,38 @@
+name: notebook-footer-stats
+title: "Notebook Footer Stats"
+description: "Four-column stat strip just above the footer."
+category: footers
+tags: [notebook, footer, stats]
+fields:
+  stat_1_value:
+    type: text
+    label: "Stat 1 Value"
+    default: "12+"
+  stat_1_label:
+    type: text
+    label: "Stat 1 Label"
+    default: "Years writing on the web"
+  stat_2_value:
+    type: text
+    label: "Stat 2 Value"
+    default: "86"
+  stat_2_label:
+    type: text
+    label: "Stat 2 Label"
+    default: "Essays in the journal"
+  stat_3_value:
+    type: text
+    label: "Stat 3 Value"
+    default: "24"
+  stat_3_label:
+    type: text
+    label: "Stat 3 Label"
+    default: "Projects shipped to date"
+  stat_4_value:
+    type: text
+    label: "Stat 4 Value"
+    default: "3,400"
+  stat_4_label:
+    type: text
+    label: "Stat 4 Label"
+    default: "Subscribers to the newsletter"

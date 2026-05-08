@@ -1,0 +1,54 @@
+name: notebook-about-snippet
+title: "Notebook About Snippet"
+description: "5/7 split with rotated portrait card on the left and a short bio + two side-by-side lists (Recently / Tools) on the right."
+category: features
+tags: [notebook, about]
+fields:
+  eyebrow:
+    type: text
+    label: "Eyebrow Text"
+    default: "About"
+  title_html:
+    type: richeditor
+    label: "Title HTML (use <em class=\"not-italic font-display italic text-ember-700\">…</em> for italic accent)"
+    default: "A small studio of <em class=\"not-italic font-display italic text-ember-700\">one</em>, building patient products and the words around them."
+  intro_html:
+    type: richeditor
+    label: "Intro HTML (1-2 paragraphs of bio)"
+    default: "<p>For the last decade I've designed and shipped products with small teams on the open web. I'm interested in long timelines, careful interfaces, and the difference between a thing that's <em>launched</em> and a thing that's <em>actually&nbsp;good</em>.</p><p>Before this I was a product designer at <a href=\"#\" class=\"ink-link text-ember-700 hover:text-ember-800\">Field &amp; Form</a>. These days I work from a small home studio in Brooklyn, mostly between school runs &mdash; my best ideas tend to arrive somewhere between &lsquo;why is the milk here&rsquo; and &lsquo;okay, story time&rsquo;.</p>"
+  portrait_url:
+    type: image
+    label: "Portrait Image URL"
+    default: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=1200&q=80"
+  portrait_alt:
+    type: text
+    label: "Portrait Alt"
+    default: "A page from Theo's working sketchbook — a wireframe in pencil"
+  status_text:
+    type: text
+    label: "Status Pill (under portrait)"
+    default: "Currently online · Brooklyn · NY"
+  list_a_label:
+    type: text
+    label: "Left List Label"
+    default: "Recently"
+  list_a_items:
+    type: textarea
+    label: "Left List Items (one per line, dashes optional)"
+    default: "Speaking at Config 2026\nShipping Acre Type v2\nIssue №16 of Coda live"
+  list_b_label:
+    type: text
+    label: "Right List Label"
+    default: "Tools"
+  list_b_items:
+    type: textarea
+    label: "Right List Items (one per line)"
+    default: "Figma · Cursor · Linear\niA Writer · Obsidian\nCoffee · Headphones · Patience"
+  more_link_text:
+    type: text
+    label: "More Link Text"
+    default: "More about me"
+  more_link_url:
+    type: url
+    label: "More Link URL"
+    default: "/about"

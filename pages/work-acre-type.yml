@@ -1,0 +1,14 @@
+slug: "work/acre-type"
+title: "Acre Type"
+browser_title: "Acre Type — A slow-built type foundry · Theo Okafor"
+meta_description: "Identity, marketing site, and specimen system for Acre Type — a small foundry releasing exactly one type family per year."
+layout: notebook-detail
+content:
+    - html: _sections/work/case-study/acre-type-hero.html
+      name: "Acre Type — Hero"
+    - html: _sections/work/case-study/acre-type-story.html
+      name: "Acre Type — The Brief"
+    - html: _sections/work/case-study/acre-type-gallery.html
+      name: "Acre Type — Gallery"
+    - html: _sections/work/case-study/next-up.html
+      name: "Acre Type — Next Up"

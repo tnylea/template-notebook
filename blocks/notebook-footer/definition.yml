@@ -1,0 +1,30 @@
+name: notebook-footer
+title: "Notebook Footer"
+description: "Editorial footer with newsletter form, link columns, and a small note."
+category: footers
+tags: [notebook, footer]
+fields:
+  logo_initial:
+    type: text
+    label: "Logo Initial"
+    default: "n"
+  logo_text:
+    type: text
+    label: "Logo Wordmark"
+    default: "notebook"
+  tagline:
+    type: textarea
+    label: "Tagline"
+    default: "A small notebook on the web — essays on craft, design, and the patient work of making things online, on purpose."
+  newsletter_label:
+    type: text
+    label: "Newsletter Label"
+    default: "A short letter, every other Sunday. No spam, easy unsubscribe."
+  studio_note:
+    type: textarea
+    label: "Studio Note"
+    default: "Built and rebuilt from a quiet corner of the internet. Powered by coffee, time, and a steady drip of curiosity."
+  copyright:
+    type: text
+    label: "Copyright Line"
+    default: "Theo Okafor. Words and pixels are kindly — please ask before reusing."

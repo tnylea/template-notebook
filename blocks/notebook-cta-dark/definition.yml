@@ -1,0 +1,34 @@
+name: notebook-cta-dark
+title: "Notebook Dark CTA"
+description: "Rounded dark-ink card with eyebrow, italic-emphasis title, description, primary CTA button, and secondary email link."
+category: cta
+tags: [notebook, cta]
+fields:
+  eyebrow:
+    type: text
+    label: "Eyebrow Text"
+    default: "Have a project in mind?"
+  title_html:
+    type: richeditor
+    label: "Title HTML (use <em class=\"not-italic font-display italic text-ember-300\">…</em> for italic ember accent)"
+    default: "Let's make something <em class=\"not-italic font-display italic text-ember-300\">slow</em> together."
+  description:
+    type: textarea
+    label: "Description"
+    default: "I take on a small handful of projects each year. If you're working on something patient and considered, I'd love to hear about it."
+  primary_button_text:
+    type: text
+    label: "Primary Button Text"
+    default: "Start a conversation"
+  primary_button_url:
+    type: url
+    label: "Primary Button URL"
+    default: "/contact"
+  secondary_link_text:
+    type: text
+    label: "Secondary Link Text (typically email)"
+    default: "hello@theookafor.com"
+  secondary_link_url:
+    type: url
+    label: "Secondary Link URL"
+    default: "mailto:hello@theookafor.com"

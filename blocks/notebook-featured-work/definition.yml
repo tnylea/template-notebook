@@ -1,0 +1,51 @@
+name: notebook-featured-work
+title: "Notebook Featured Work"
+description: "Asymmetric project tile grid (7/5, 5/7 alternating). Repeater of projects with category, title, description, and image."
+category: features
+tags: [notebook, work, portfolio, grid]
+fields:
+  eyebrow:
+    type: text
+    label: "Eyebrow Text"
+    default: "Selected Work"
+  heading:
+    type: text
+    label: "Heading"
+    default: "A handful of things I'm proud of."
+  archive_link_text:
+    type: text
+    label: "Archive Link Text"
+    default: "View the full archive →"
+  archive_link_url:
+    type: url
+    label: "Archive Link URL"
+    default: "/work"
+  projects:
+    type: repeater
+    label: "Projects (alternating tile sizes 7/5, 5/7)"
+    max: 12
+    fields:
+      slug:
+        type: url
+        label: "Project URL"
+        default: "/work/example-project"
+      category:
+        type: text
+        label: "Category Label"
+        default: "Brand · Type"
+      title:
+        type: text
+        label: "Project Title"
+        default: "Project Title"
+      description:
+        type: textarea
+        label: "Description"
+        default: "A short, evocative description of the project."
+      image_url:
+        type: image
+        label: "Image URL"
+        default: "https://images.unsplash.com/photo-1561070791-2526d30994b8?auto=format&fit=crop&w=1600&q=80"
+      image_alt:
+        type: text
+        label: "Image Alt"
+        default: "Project image"

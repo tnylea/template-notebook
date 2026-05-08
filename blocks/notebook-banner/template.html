@@ -1,0 +1,10 @@
+<div class="bg-ink-900 text-paper-100">
+    <div class="mx-auto flex max-w-7xl items-center justify-center gap-x-3 px-4 py-2.5 text-center text-[12px] tracking-[0.14em] uppercase">
+        <span class="size-1.5 rounded-full bg-ember-500"></span>
+        <span class="font-medium text-paper-200">{{ $intro_text ?? 'New essay' }}&nbsp;—&nbsp;<a href="{{ $link_url ?? '#' }}" class="ink-link text-paper-50">{{ $link_text ?? 'Latest entry' }}</a></span>
+        @if (!empty($secondary_text))
+            <span class="hidden sm:inline-block text-paper-400">·</span>
+            <a href="{{ $secondary_url ?? '#' }}" class="hidden sm:inline-block text-paper-300 hover:text-paper-50 transition">{{ $secondary_text }}</a>
+        @endif
+    </div>
+</div>
