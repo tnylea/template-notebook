@@ -3,6 +3,7 @@ title: "Notebook Banner"
 description: "Top announcement banner — single line of intro text with optional link."
 category: headers
 tags: [notebook, banner]
+template_engine: twig
 fields:
   intro_text:
     type: text

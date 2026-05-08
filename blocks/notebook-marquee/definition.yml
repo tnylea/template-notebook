@@ -3,6 +3,7 @@ title: "Notebook Marquee"
 description: "Italic-Fraunces auto-scrolling marquee of magazine names or partner brands, separated by ember stars."
 category: features
 tags: [notebook, marquee, social-proof]
+template_engine: twig
 fields:
   items:
     type: text

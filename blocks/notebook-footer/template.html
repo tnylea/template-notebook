@@ -3,16 +3,16 @@
         <div class="grid gap-12 py-16 md:grid-cols-12">
             <div class="md:col-span-5">
                 <a href="/" class="flex items-center gap-x-3">
-                    <span class="grid size-10 place-items-center rounded-full bg-paper-50 text-ink-900 font-display text-[1.1rem] leading-none">{{ $logo_initial ?? 'm.' }}</span>
-                    <span class="font-display text-xl text-paper-50 tracking-tight">{{ $logo_text ?? 'Mara Ellis' }}</span>
+                    <span class="grid size-10 place-items-center rounded-full bg-paper-50 text-ink-900 font-display text-[1.1rem] leading-none">{{ logo_initial|default('m.') }}</span>
+                    <span class="font-display text-xl text-paper-50 tracking-tight">{{ logo_text|default('Mara Ellis') }}</span>
                 </a>
-                <p class="mt-5 max-w-sm text-paper-300 leading-relaxed">{{ $tagline ?? '' }}</p>
+                <p class="mt-5 max-w-sm text-paper-300 leading-relaxed">{{ tagline|default('') }}</p>
 
                 <form class="mt-7 flex max-w-md items-center gap-x-2 rounded-full border border-paper-700 bg-ink-800 p-1.5">
                     <input type="email" required placeholder="you@example.com" class="flex-1 bg-transparent px-4 py-2 text-sm text-paper-50 placeholder:text-paper-500 focus:outline-none" />
                     <button type="submit" class="rounded-full bg-ember-500 px-5 py-2 text-sm font-medium text-paper-50 transition hover:bg-ember-600">Subscribe</button>
                 </form>
-                <p class="mt-3 text-xs text-paper-500">{{ $newsletter_label ?? '' }}</p>
+                <p class="mt-3 text-xs text-paper-500">{{ newsletter_label|default('') }}</p>
             </div>
 
             <div class="md:col-span-2">
@@ -37,13 +37,13 @@
 
             <div class="md:col-span-3">
                 <p class="font-display text-paper-50 text-base mb-4">A note</p>
-                <p class="text-sm text-paper-300 leading-relaxed">{{ $studio_note ?? '' }}</p>
+                <p class="text-sm text-paper-300 leading-relaxed">{{ studio_note|default('') }}</p>
             </div>
         </div>
 
         <div class="flex flex-col-reverse items-start justify-between gap-4 border-t border-paper-700/50 py-6 text-xs text-paper-500 sm:flex-row sm:items-center">
-            <p>© {{ date('Y') }} {{ $copyright ?? '' }}</p>
-            <p>Crafted with <span class="text-ember-400">♥</span> and CMS&nbsp;Max.</p>
+            <p>&copy; {{ "now"|date('Y') }} {{ copyright|default('') }}</p>
+            <p>Crafted with <span class="text-ember-400">&hearts;</span> and CMS&nbsp;Max.</p>
         </div>
     </div>
 </footer>

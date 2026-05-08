@@ -1,81 +1,79 @@
-@php
-    $defaultPosts = [
-        [
-            'url' => '/journal/the-quiet-craft-of-shipping',
-            'image_url' => 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80',
-            'image_alt' => 'A stack of journals',
-            'date_iso' => '2026-04-18',
-            'date_display' => 'April 18, 2026',
-            'category' => 'Craft',
-            'title' => 'The quiet craft of shipping',
-            'excerpt' => "On the unglamorous, careful work that fills the last 10% of any meaningful project — and why we don't talk about it enough.",
-        ],
-        [
-            'url' => '/journal/notes-on-finishing',
-            'image_url' => 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80',
-            'image_alt' => 'A workbench with hand tools',
-            'date_iso' => '2026-03-30',
-            'date_display' => 'March 30, 2026',
-            'category' => 'Process',
-            'title' => 'Notes on finishing',
-            'excerpt' => 'A small collection of habits that helped me move from "perpetually iterating" to "actually done" — without losing the love.',
-        ],
-        [
-            'url' => '/journal/typography-feels',
-            'image_url' => 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80',
-            'image_alt' => 'Mountain at dusk in soft tones',
-            'date_iso' => '2026-03-12',
-            'date_display' => 'March 12, 2026',
-            'category' => 'Type',
-            'title' => 'Typography is mostly feeling',
-            'excerpt' => "A short defence of intuition over rules — and why the best typography choices are usually the ones you can't quite explain.",
-        ],
-    ];
-    $items = (!empty($posts) && is_array($posts)) ? $posts : $defaultPosts;
-@endphp
+{% set defaultPosts = [
+    {
+        url: '/journal/the-quiet-craft-of-shipping',
+        image_url: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80',
+        image_alt: 'A stack of journals',
+        date_iso: '2026-04-18',
+        date_display: 'April 18, 2026',
+        category: 'Craft',
+        title: 'The quiet craft of shipping',
+        excerpt: "On the unglamorous, careful work that fills the last 10% of any meaningful project — and why we don't talk about it enough."
+    },
+    {
+        url: '/journal/notes-on-finishing',
+        image_url: 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=1200&q=80',
+        image_alt: 'A workbench with hand tools',
+        date_iso: '2026-03-30',
+        date_display: 'March 30, 2026',
+        category: 'Process',
+        title: 'Notes on finishing',
+        excerpt: 'A small collection of habits that helped me move from "perpetually iterating" to "actually done" — without losing the love.'
+    },
+    {
+        url: '/journal/typography-feels',
+        image_url: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80',
+        image_alt: 'Mountain at dusk in soft tones',
+        date_iso: '2026-03-12',
+        date_display: 'March 12, 2026',
+        category: 'Type',
+        title: 'Typography is mostly feeling',
+        excerpt: "A short defence of intuition over rules — and why the best typography choices are usually the ones you can't quite explain."
+    }
+] %}
+{% set items = (posts is iterable and posts is not empty) ? posts : defaultPosts %}
 
 <section class="relative bg-paper-100 py-24 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 lg:px-8">
         <div class="flex flex-col items-start gap-y-6 md:flex-row md:items-end md:justify-between">
             <div>
-                @if (!empty($eyebrow))
-                    <p class="eyebrow flex items-center"><span class="rule"></span>{{ $eyebrow }}</p>
-                @endif
-                @if (!empty($heading))
-                    <h2 class="font-display mt-4 text-4xl sm:text-5xl tracking-tight text-ink-900 max-w-2xl">{{ $heading }}</h2>
-                @endif
-                @if (!empty($description))
-                    <p class="mt-3 max-w-prose text-ink-600">{{ $description }}</p>
-                @endif
+                {% if eyebrow is not empty %}
+                    <p class="eyebrow flex items-center"><span class="rule"></span>{{ eyebrow }}</p>
+                {% endif %}
+                {% if heading is not empty %}
+                    <h2 class="font-display mt-4 text-4xl sm:text-5xl tracking-tight text-ink-900 max-w-2xl">{{ heading }}</h2>
+                {% endif %}
+                {% if description is not empty %}
+                    <p class="mt-3 max-w-prose text-ink-600">{{ description }}</p>
+                {% endif %}
             </div>
-            @if (!empty($archive_link_text))
-                <a href="{{ $archive_link_url ?? '/journal' }}" class="ink-link text-sm text-ink-700 hover:text-ink-900 transition self-start md:self-auto">{{ $archive_link_text }}</a>
-            @endif
+            {% if archive_link_text is not empty %}
+                <a href="{{ archive_link_url|default('/journal') }}" class="ink-link text-sm text-ink-700 hover:text-ink-900 transition self-start md:self-auto">{{ archive_link_text }}</a>
+            {% endif %}
         </div>
 
         <div class="mt-14 grid gap-8 md:grid-cols-3">
-            @foreach ($items as $p)
+            {% for p in items %}
                 <article class="group flex flex-col">
-                    <a href="{{ $p['url'] ?? '#' }}" class="block aspect-[4/3] overflow-hidden rounded-2xl bg-paper-200">
-                        <img src="{{ $p['image_url'] ?? '' }}" alt="{{ $p['image_alt'] ?? '' }}" class="size-full object-cover transition duration-700 group-hover:scale-[1.03]" />
+                    <a href="{{ p.url|default('#') }}" class="block aspect-[4/3] overflow-hidden rounded-2xl bg-paper-200">
+                        <img src="{{ p.image_url|default('') }}" alt="{{ p.image_alt|default('') }}" class="size-full object-cover transition duration-700 group-hover:scale-[1.03]" />
                     </a>
                     <div class="mt-5 flex items-center gap-x-3 text-xs text-ink-500">
-                        @if (!empty($p['date_display']))
-                            <time @if (!empty($p['date_iso'])) datetime="{{ $p['date_iso'] }}" @endif>{{ $p['date_display'] }}</time>
-                        @endif
-                        @if (!empty($p['category']))
+                        {% if p.date_display is defined and p.date_display is not empty %}
+                            <time {% if p.date_iso is defined and p.date_iso is not empty %}datetime="{{ p.date_iso }}"{% endif %}>{{ p.date_display }}</time>
+                        {% endif %}
+                        {% if p.category is defined and p.category is not empty %}
                             <span>·</span>
-                            <span class="rounded-full bg-paper-200 px-2.5 py-0.5 text-ink-700">{{ $p['category'] }}</span>
-                        @endif
+                            <span class="rounded-full bg-paper-200 px-2.5 py-0.5 text-ink-700">{{ p.category }}</span>
+                        {% endif %}
                     </div>
                     <h3 class="mt-3 font-display text-2xl text-ink-900 leading-tight">
-                        <a href="{{ $p['url'] ?? '#' }}" class="ink-link">{{ $p['title'] ?? '' }}</a>
+                        <a href="{{ p.url|default('#') }}" class="ink-link">{{ p.title|default('') }}</a>
                     </h3>
-                    @if (!empty($p['excerpt']))
-                        <p class="mt-2 text-ink-600 text-sm leading-relaxed">{{ $p['excerpt'] }}</p>
-                    @endif
+                    {% if p.excerpt is defined and p.excerpt is not empty %}
+                        <p class="mt-2 text-ink-600 text-sm leading-relaxed">{{ p.excerpt }}</p>
+                    {% endif %}
                 </article>
-            @endforeach
+            {% endfor %}
         </div>
     </div>
 </section>

@@ -1,89 +1,83 @@
-@php
-    // Fixture defaults — used when the repeater is empty (first install).
-    $defaultProjects = [
-        [
-            'slug' => '/work/acre-type',
-            'category' => 'Brand · Type',
-            'title' => 'Acre Type — a slow-built type foundry',
-            'description' => 'An identity, marketing site, and specimen system for a small foundry releasing one family per year.',
-            'image_url' => 'https://images.unsplash.com/photo-1561070791-2526d30994b8?auto=format&fit=crop&w=1600&q=80',
-            'image_alt' => 'Acre Type — typographic identity laid out on a warm cream surface',
-        ],
-        [
-            'slug' => '/work/folio-readers',
-            'category' => 'Product · Mobile',
-            'title' => 'Folio — a quieter reading app',
-            'description' => 'Concept and product design for a longform reader that earns its place on your home screen.',
-            'image_url' => 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1400&q=80',
-            'image_alt' => 'Folio Readers app — a quiet reading app on a phone screen',
-        ],
-        [
-            'slug' => '/work/coda-letters',
-            'category' => 'Editorial · Print',
-            'title' => 'Coda — a quarterly letter',
-            'description' => 'Co-edited and designed quarterly print letters on craft, work, and the long view.',
-            'image_url' => 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=80',
-            'image_alt' => 'Coda — a stack of notebooks and printed letters in warm light',
-        ],
-        [
-            'slug' => '/work/pebble-os',
-            'category' => 'Concept · Systems',
-            'title' => 'Pebble OS — a calmer desktop',
-            'description' => 'A 6-month exploration into a desktop environment that respects attention.',
-            'image_url' => 'https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1600&q=80',
-            'image_alt' => 'Pebble OS — a desktop operating system concept',
-        ],
-    ];
-
-    $items = (!empty($projects) && is_array($projects)) ? $projects : $defaultProjects;
-@endphp
+{% set defaultProjects = [
+    {
+        slug: '/work/acre-type',
+        category: 'Brand · Type',
+        title: 'Acre Type — a slow-built type foundry',
+        description: 'An identity, marketing site, and specimen system for a small foundry releasing one family per year.',
+        image_url: 'https://images.unsplash.com/photo-1561070791-2526d30994b8?auto=format&fit=crop&w=1600&q=80',
+        image_alt: 'Acre Type — typographic identity laid out on a warm cream surface'
+    },
+    {
+        slug: '/work/folio-readers',
+        category: 'Product · Mobile',
+        title: 'Folio — a quieter reading app',
+        description: 'Concept and product design for a longform reader that earns its place on your home screen.',
+        image_url: 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1400&q=80',
+        image_alt: 'Folio Readers app — a quiet reading app on a phone screen'
+    },
+    {
+        slug: '/work/coda-letters',
+        category: 'Editorial · Print',
+        title: 'Coda — a quarterly letter',
+        description: 'Co-edited and designed quarterly print letters on craft, work, and the long view.',
+        image_url: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=80',
+        image_alt: 'Coda — a stack of notebooks and printed letters in warm light'
+    },
+    {
+        slug: '/work/pebble-os',
+        category: 'Concept · Systems',
+        title: 'Pebble OS — a calmer desktop',
+        description: 'A 6-month exploration into a desktop environment that respects attention.',
+        image_url: 'https://images.unsplash.com/photo-1493612276216-ee3925520721?auto=format&fit=crop&w=1600&q=80',
+        image_alt: 'Pebble OS — a desktop operating system concept'
+    }
+] %}
+{% set items = (projects is iterable and projects is not empty) ? projects : defaultProjects %}
 
 <section class="relative bg-paper-100 py-24 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 lg:px-8">
         <div class="flex flex-col items-start gap-y-6 md:flex-row md:items-end md:justify-between">
             <div>
-                @if (!empty($eyebrow))
-                    <p class="eyebrow flex items-center"><span class="rule"></span>{{ $eyebrow }}</p>
-                @endif
-                @if (!empty($heading))
-                    <h2 class="font-display mt-4 text-4xl sm:text-5xl tracking-tight text-ink-900 max-w-2xl">{{ $heading }}</h2>
-                @endif
+                {% if eyebrow is not empty %}
+                    <p class="eyebrow flex items-center"><span class="rule"></span>{{ eyebrow }}</p>
+                {% endif %}
+                {% if heading is not empty %}
+                    <h2 class="font-display mt-4 text-4xl sm:text-5xl tracking-tight text-ink-900 max-w-2xl">{{ heading }}</h2>
+                {% endif %}
             </div>
-            @if (!empty($archive_link_text))
-                <a href="{{ $archive_link_url ?? '/work' }}" class="ink-link text-sm text-ink-700 hover:text-ink-900 transition self-start md:self-auto">{{ $archive_link_text }}</a>
-            @endif
+            {% if archive_link_text is not empty %}
+                <a href="{{ archive_link_url|default('/work') }}" class="ink-link text-sm text-ink-700 hover:text-ink-900 transition self-start md:self-auto">{{ archive_link_text }}</a>
+            {% endif %}
         </div>
 
         <div class="mt-14 grid gap-8 md:grid-cols-12">
-            @foreach ($items as $i => $p)
-                @php
-                    // Alternate tile widths: 7/5, 5/7, 5/7, 7/5, etc.
-                    $isWide = ($i % 4 === 0) || ($i % 4 === 3);
-                    $colSpan = $isWide ? 'md:col-span-7' : 'md:col-span-5';
-                    $aspect = $isWide ? 'aspect-[16/11]' : 'aspect-[4/3]';
-                @endphp
-                <a href="{{ $p['slug'] ?? '#' }}" class="group {{ $colSpan }} relative block overflow-hidden rounded-[2rem] paper-card">
-                    <div class="{{ $aspect }} overflow-hidden bg-paper-200">
-                        <img src="{{ $p['image_url'] ?? '' }}" alt="{{ $p['image_alt'] ?? '' }}" class="size-full object-cover transition duration-700 group-hover:scale-[1.03]" />
+            {% for p in items %}
+                {% set i = loop.index0 %}
+                {% set isWide = (i % 4 == 0) or (i % 4 == 3) %}
+                {% set colSpan = isWide ? 'md:col-span-7' : 'md:col-span-5' %}
+                {% set aspect = isWide ? 'aspect-[16/11]' : 'aspect-[4/3]' %}
+                <a href="{{ p.slug|default('#') }}" class="group {{ colSpan }} relative block overflow-hidden rounded-[2rem] paper-card">
+                    <div class="{{ aspect }} overflow-hidden bg-paper-200">
+                        <img src="{{ p.image_url|default('') }}" alt="{{ p.image_alt|default('') }}" class="size-full object-cover transition duration-700 group-hover:scale-[1.03]" />
                     </div>
                     <div class="flex items-end justify-between gap-x-6 p-7">
                         <div>
-                            @if (!empty($p['category']))
-                                <p class="text-xs uppercase tracking-widest text-ember-700">{{ $p['category'] }}</p>
-                            @endif
-                            <h3 class="font-display mt-2 text-2xl text-ink-900">{{ $p['title'] ?? '' }}</h3>
-                            @if (!empty($p['description']))
-                                <p class="mt-2 text-ink-600 text-sm max-w-md">{{ $p['description'] }}</p>
-                            @endif
+                            {% if p.category is defined and p.category is not empty %}
+                                <p class="text-xs uppercase tracking-widest text-ember-700">{{ p.category }}</p>
+                            {% endif %}
+                            <h3 class="font-display mt-2 text-2xl text-ink-900">{{ p.title|default('') }}</h3>
+                            {% if p.description is defined and p.description is not empty %}
+                                <p class="mt-2 text-ink-600 text-sm max-w-md">{{ p.description }}</p>
+                            {% endif %}
                         </div>
-                        @if ($isWide)
+                        {% if isWide %}
                             <span class="grid size-11 shrink-0 place-items-center rounded-full bg-ink-900 text-paper-50 transition group-hover:bg-ember-600">
                                 <svg viewBox="0 0 16 16" class="size-4" fill="none" aria-hidden="true"><path d="M3 13L13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </span>
-                        @endif
+                        {% endif %}
                     </div>
                 </a>
-            @endforeach
+            {% endfor %}
         </div>
     </div>
 </section>

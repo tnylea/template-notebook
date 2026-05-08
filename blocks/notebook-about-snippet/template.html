@@ -1,18 +1,13 @@
-@php
-    $listA = array_values(array_filter(array_map(fn ($l) => ltrim(trim($l), '—-· '), explode("\n", (string) ($list_a_items ?? ''))), fn ($s) => $s !== ''));
-    $listB = array_values(array_filter(array_map(fn ($l) => ltrim(trim($l), '—-· '), explode("\n", (string) ($list_b_items ?? ''))), fn ($s) => $s !== ''));
-@endphp
-
 <section class="relative bg-paper-50 border-y border-paper-300/70 py-24 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 lg:px-8">
         <div class="grid gap-y-14 md:grid-cols-12 md:gap-x-16">
             <div class="md:col-span-5">
                 <div class="relative aspect-[4/5] overflow-hidden rounded-[2rem] paper-card rotate-[1.5deg]">
-                    @if (!empty($portrait_url))
-                        <img src="{{ $portrait_url }}" alt="{{ $portrait_alt ?? '' }}" class="size-full object-cover" />
-                    @endif
+                    {% if portrait_url is not empty %}
+                        <img src="{{ portrait_url }}" alt="{{ portrait_alt|default('') }}" class="size-full object-cover" />
+                    {% endif %}
                 </div>
-                @if (!empty($status_text))
+                {% if status_text is not empty %}
                     <div class="mt-6 flex items-center gap-x-3 text-sm text-ink-500">
                         <span class="grid size-8 place-items-center rounded-full bg-ember-100 text-ember-700">
                             <svg viewBox="0 0 16 16" fill="none" class="size-4" aria-hidden="true">
@@ -20,47 +15,53 @@
                                 <path d="M5.5 8.5L7 10l3.5-3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </span>
-                        <p>{{ $status_text }}</p>
+                        <p>{{ status_text }}</p>
                     </div>
-                @endif
+                {% endif %}
             </div>
 
             <div class="md:col-span-7 md:pt-12">
-                @if (!empty($eyebrow))
-                    <p class="eyebrow flex items-center"><span class="rule"></span>{{ $eyebrow }}</p>
-                @endif
+                {% if eyebrow is not empty %}
+                    <p class="eyebrow flex items-center"><span class="rule"></span>{{ eyebrow }}</p>
+                {% endif %}
                 <h2 class="font-display mt-4 text-4xl sm:text-5xl tracking-tight text-ink-900 leading-[1.05]">
-                    {!! $title_html ?? '' !!}
+                    {{ (title_html|default(''))|raw }}
                 </h2>
                 <div class="prose mt-6 max-w-prose text-lg text-ink-700 leading-relaxed">
-                    {!! $intro_html ?? '' !!}
+                    {{ (intro_html|default(''))|raw }}
                 </div>
 
                 <div class="mt-10 grid gap-y-6 sm:grid-cols-2 sm:gap-x-8 max-w-xl">
                     <div>
-                        <p class="font-display text-2xl text-ink-900">{{ $list_a_label ?? '' }}</p>
+                        <p class="font-display text-2xl text-ink-900">{{ list_a_label|default('') }}</p>
                         <ul class="mt-2 space-y-2 text-sm text-ink-600">
-                            @foreach ($listA as $item)
-                                <li>— {{ $item }}</li>
-                            @endforeach
+                            {% for raw in (list_a_items|default(''))|split('\n') %}
+                                {% set item = raw|trim %}
+                                {% if item is not empty %}
+                                    <li>— {{ item }}</li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </div>
                     <div>
-                        <p class="font-display text-2xl text-ink-900">{{ $list_b_label ?? '' }}</p>
+                        <p class="font-display text-2xl text-ink-900">{{ list_b_label|default('') }}</p>
                         <ul class="mt-2 space-y-2 text-sm text-ink-600">
-                            @foreach ($listB as $item)
-                                <li>— {{ $item }}</li>
-                            @endforeach
+                            {% for raw in (list_b_items|default(''))|split('\n') %}
+                                {% set item = raw|trim %}
+                                {% if item is not empty %}
+                                    <li>— {{ item }}</li>
+                                {% endif %}
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
 
-                @if (!empty($more_link_text))
-                    <a href="{{ $more_link_url ?? '/about' }}" class="mt-10 inline-flex items-center gap-x-2 text-sm font-medium text-ink-900 ink-link">
-                        {{ $more_link_text }}
+                {% if more_link_text is not empty %}
+                    <a href="{{ more_link_url|default('/about') }}" class="mt-10 inline-flex items-center gap-x-2 text-sm font-medium text-ink-900 ink-link">
+                        {{ more_link_text }}
                         <svg viewBox="0 0 16 16" class="size-3.5" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     </a>
-                @endif
+                {% endif %}
             </div>
         </div>
     </div>

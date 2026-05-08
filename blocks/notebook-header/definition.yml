@@ -3,6 +3,7 @@ title: "Notebook Header"
 description: "Sticky header with monogram logo, navigation, and a 'Say hello' CTA."
 category: headers
 tags: [notebook, header]
+template_engine: twig
 fields:
   logo_initial:
     type: text
