@@ -1,43 +1,43 @@
 <section class="relative isolate bg-paper-100">
     <div class="mx-auto max-w-7xl px-4 lg:px-8">
         <div class="grid items-center gap-y-16 py-16 md:grid-cols-12 md:gap-x-12 lg:py-18">
-            {{-- LEFT: copy --}}
+            {# LEFT: copy #}
             <div class="md:col-span-6 lg:col-span-6">
                 <p class="flex items-center gap-x-3 text-[0.72rem] tracking-[0.18em] uppercase font-semibold text-paper-700">
-                    @if (!empty($tag_1))<span>{{ $tag_1 }}</span>@endif
-                    @if (!empty($tag_2))<span class="size-1 rounded-full bg-paper-500" aria-hidden="true"></span><span>{{ $tag_2 }}</span>@endif
-                    @if (!empty($tag_3))<span class="size-1 rounded-full bg-paper-500" aria-hidden="true"></span><span>{{ $tag_3 }}</span>@endif
+                    {% if tag_1 %}<span>{{ tag_1 }}</span>{% endif %}
+                    {% if tag_2 %}<span class="size-1 rounded-full bg-paper-500" aria-hidden="true"></span><span>{{ tag_2 }}</span>{% endif %}
+                    {% if tag_3 %}<span class="size-1 rounded-full bg-paper-500" aria-hidden="true"></span><span>{{ tag_3 }}</span>{% endif %}
                 </p>
 
                 <h1 class="font-display font-normal mt-8 text-balance text-[3rem] sm:text-6xl lg:text-[4.375rem] leading-[1.05] tracking-[-0.01em] text-ink-950">
-                    {!! $title_html ?? 'I design thoughtful digital experiences <em>and write about <span class="text-ember-700 brush-underline">them</span>.</em>' !!}
+                    {{ (title_html ?? 'I design thoughtful digital experiences <em>and write about <span class="text-ember-700 brush-underline">them</span>.</em>')|raw }}
                 </h1>
 
-                @if (!empty($description))
+                {% if description %}
                     <p class="mt-6 max-w-[55ch] text-pretty text-base leading-relaxed text-ink-700">
-                        {{ $description }}
+                        {{ description }}
                     </p>
-                @endif
+                {% endif %}
 
                 <div class="mt-8 flex flex-wrap items-center gap-3">
-                    @if (!empty($primary_button_text))
-                        <a href="{{ $primary_button_url ?? '#' }}" class="group inline-flex items-center gap-x-3 rounded-full bg-ink-900 px-7 py-3.5 text-sm font-medium text-paper-50 transition hover:-translate-y-0.5 hover:bg-ink-700">
-                            {{ $primary_button_text }}
+                    {% if primary_button_text %}
+                        <a href="{{ primary_button_url ?? '#' }}" class="group inline-flex items-center gap-x-3 rounded-full bg-ink-900 px-7 py-3.5 text-sm font-medium text-paper-50 transition hover:-translate-y-0.5 hover:bg-ink-700">
+                            {{ primary_button_text }}
                             <svg viewBox="0 0 16 16" class="size-3.5 transition-transform group-hover:translate-x-0.5" fill="none" aria-hidden="true">
                                 <path d="M3 13L13 3M5 3h8v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </a>
-                    @endif
-                    @if (!empty($secondary_button_text))
-                        <a href="{{ $secondary_button_url ?? '#' }}" class="inline-flex items-center rounded-full bg-paper-50 px-7 py-3.5 text-sm font-medium text-ink-900 ring-1 ring-paper-300 transition hover:-translate-y-0.5 hover:bg-paper-200">
-                            {{ $secondary_button_text }}
+                    {% endif %}
+                    {% if secondary_button_text %}
+                        <a href="{{ secondary_button_url ?? '#' }}" class="inline-flex items-center rounded-full bg-paper-50 px-7 py-3.5 text-sm font-medium text-ink-900 ring-1 ring-paper-300 transition hover:-translate-y-0.5 hover:bg-paper-200">
+                            {{ secondary_button_text }}
                         </a>
-                    @endif
+                    {% endif %}
                 </div>
 
-                @if ($show_trusted_by ?? true)
+                {% if show_trusted_by ?? true %}
                     <div class="mt-14 lg:mt-16 translate-y-8">
-                        <p class="text-[0.7rem] tracking-[0.18em] uppercase font-semibold text-paper-700">{{ $trusted_label ?? 'Trusted by teams at' }}</p>
+                        <p class="text-[0.7rem] tracking-[0.18em] uppercase font-semibold text-paper-700">{{ trusted_label ?? 'Trusted by teams at' }}</p>
                         <div class="mt-5 flex flex-wrap items-center gap-x-8 gap-y-3 text-ink-900">
                             <span class="inline-flex items-center gap-x-2 font-medium">
                                 <svg viewBox="0 0 24 24" class="size-5" fill="currentColor" aria-hidden="true"><path d="M12 4 L22 21 L2 21 Z"/></svg>
@@ -60,53 +60,54 @@
                             </span>
                         </div>
                     </div>
-                @endif
+                {% endif %}
             </div>
 
-            {{-- RIGHT: portrait + floating cards --}}
+            {# RIGHT: portrait + floating cards #}
             <div class="md:col-span-6 lg:col-span-6">
                 <div class="relative pl-10">
                     <figure class="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] paper-card">
-                        @if (!empty($portrait_url))
-                            <img src="{{ $portrait_url }}" alt="{{ $portrait_alt ?? '' }}" class="size-full object-cover" loading="eager" />
-                        @endif
+                        {% if portrait_url %}
+                            <img src="{{ portrait_url }}" alt="{{ portrait_alt ?? '' }}" class="size-full object-cover" loading="eager" />
+                        {% endif %}
                     </figure>
 
-                    @if (($show_currently_card ?? true) && !empty($currently_title))
-                        <div class="absolute z-20 top-6 -right-2 sm:-right-6 lg:-right-10 hidden md:block w-[260px] rounded-2xl bg-paper-50 shadow-lift ring-1 ring-paper-300 p-5">
-                            <p class="text-[0.66rem] tracking-[0.18em] uppercase font-semibold text-paper-700">{{ $currently_label ?? 'Currently' }}</p>
+                    {% if (show_currently_card ?? true) and currently_title %}
+                        <div class="absolute z-20 top-1/2 -right-2 sm:-right-6 lg:-right-20 hidden md:block mt-5 w-[225px] rounded-2xl bg-paper-50 shadow-lift ring-1 ring-paper-300 p-5">
+                            <p class="text-[0.66rem] tracking-[0.18em] uppercase font-semibold text-paper-700">{{ currently_label ?? 'Currently' }}</p>
                             <div class="mt-2 flex items-start justify-between gap-x-3">
-                                <p class="font-medium text-ink-900 leading-snug text-[15px]">{{ $currently_title }}</p>
+                                <p class="font-medium text-ink-900 leading-snug text-[15px]">{{ currently_title }}</p>
                                 <span class="grid size-7 shrink-0 place-items-center rounded-full bg-paper-100 ring-1 ring-paper-300 text-ink-700">
                                     <svg viewBox="0 0 16 16" class="size-3" fill="none" aria-hidden="true"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
                                 </span>
                             </div>
-                            @php $progress = max(0, min(100, (int) ($currently_progress ?? 60))); @endphp
+                            {% set progress = currently_progress ?? 60 %}
+                            {% set progress = progress < 0 ? 0 : (progress > 100 ? 100 : progress) %}
                             <div class="mt-4 h-1.5 w-full rounded-full bg-paper-200 overflow-hidden">
-                                <div class="h-full rounded-full bg-ember-700" style="width: {{ $progress }}%"></div>
+                                <div class="h-full rounded-full bg-ember-700" style="width: {{ progress }}%"></div>
                             </div>
-                            <p class="mt-2 text-xs text-paper-700">{{ $progress }}% complete</p>
+                            <p class="mt-2 text-xs text-paper-700">{{ progress }}% complete</p>
                         </div>
-                    @endif
+                    {% endif %}
 
-                    @if (($show_essay_card ?? true) && !empty($essay_title))
-                        <a href="{{ $essay_url ?? '#' }}" class="group absolute z-20 bottom-6 -right-2 sm:-right-6 lg:-right-10 hidden md:block w-[280px] rounded-2xl bg-paper-50 shadow-lift ring-1 ring-paper-300 p-5 transition hover:-translate-y-0.5">
-                            <p class="text-[0.66rem] tracking-[0.18em] uppercase font-semibold text-paper-700">{{ $essay_label ?? 'Latest Essay' }}</p>
+                    {% if (show_essay_card ?? true) and essay_title %}
+                        <a href="{{ essay_url ?? '#' }}" class="group absolute z-20 bottom-4 -right-2 sm:-right-6 lg:-right-10 hidden md:block w-[280px] rounded-2xl bg-paper-50 shadow-lift ring-1 ring-paper-300 p-5 transition hover:-translate-y-0.5">
+                            <p class="text-[0.66rem] tracking-[0.18em] uppercase font-semibold text-paper-700">{{ essay_label ?? 'Latest Essay' }}</p>
                             <div class="mt-3 flex items-start gap-x-3">
                                 <div class="flex-1 min-w-0">
-                                    <p class="font-medium text-ink-900 leading-snug text-[15px]">{{ $essay_title }}</p>
-                                    @if (!empty($essay_meta))
-                                        <p class="mt-2 text-xs text-paper-700">{{ $essay_meta }}</p>
-                                    @endif
+                                    <p class="font-medium text-ink-900 leading-snug text-[15px]">{{ essay_title }}</p>
+                                    {% if essay_meta %}
+                                        <p class="mt-2 text-xs text-paper-700">{{ essay_meta }}</p>
+                                    {% endif %}
                                 </div>
                                 <span class="block size-14 shrink-0 overflow-hidden rounded-lg bg-paper-200">
-                                    @if (!empty($essay_thumbnail))
-                                        <img src="{{ $essay_thumbnail }}" alt="" class="size-full object-cover transition duration-500 group-hover:scale-105" />
-                                    @endif
+                                    {% if essay_thumbnail %}
+                                        <img src="{{ essay_thumbnail }}" alt="" class="size-full object-cover transition duration-500 group-hover:scale-105" />
+                                    {% endif %}
                                 </span>
                             </div>
                         </a>
-                    @endif
+                    {% endif %}
                 </div>
             </div>
         </div>
