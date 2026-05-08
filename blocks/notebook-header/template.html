@@ -6,11 +6,11 @@
         </a>
 
         <nav class="hidden md:flex items-center gap-x-9 text-sm text-ink-700">
-            @if (!empty($nav_label_1))<a href="{{ $nav_url_1 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_1 }}</a>@endif
-            @if (!empty($nav_label_2))<a href="{{ $nav_url_2 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_2 }}</a>@endif
-            @if (!empty($nav_label_3))<a href="{{ $nav_url_3 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_3 }}</a>@endif
-            @if (!empty($nav_label_4))<a href="{{ $nav_url_4 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_4 }}</a>@endif
-            @if (!empty($nav_label_5))<a href="{{ $nav_url_5 ?? '#' }}" class="ink-link hover:text-ink-900 transition">{{ $nav_label_5 }}</a>@endif
+            @if (!empty($nav_label_1))<a href="{{ $nav_url_1 ?? '#' }}" data-nav-link class="nav-link hover:text-ink-900 transition">{{ $nav_label_1 }}</a>@endif
+            @if (!empty($nav_label_2))<a href="{{ $nav_url_2 ?? '#' }}" data-nav-link class="nav-link hover:text-ink-900 transition">{{ $nav_label_2 }}</a>@endif
+            @if (!empty($nav_label_3))<a href="{{ $nav_url_3 ?? '#' }}" data-nav-link class="nav-link hover:text-ink-900 transition">{{ $nav_label_3 }}</a>@endif
+            @if (!empty($nav_label_4))<a href="{{ $nav_url_4 ?? '#' }}" data-nav-link class="nav-link hover:text-ink-900 transition">{{ $nav_label_4 }}</a>@endif
+            @if (!empty($nav_label_5))<a href="{{ $nav_url_5 ?? '#' }}" data-nav-link class="nav-link hover:text-ink-900 transition">{{ $nav_label_5 }}</a>@endif
         </nav>
 
         <div class="flex items-center gap-x-3">

@@ -1,3 +1,23 @@
+// Notebook — mark active nav link based on current URL
+(function () {
+  const links = document.querySelectorAll('[data-nav-link]');
+  if (!links.length) return;
+  const stripTrail = (p) => (p === '/' ? '/' : p.replace(/\/+$/, ''));
+  const current = stripTrail(window.location.pathname.replace(/\/index\.html$/, '/'));
+  links.forEach((link) => {
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    let path;
+    try { path = new URL(href, window.location.origin).pathname; }
+    catch (e) { return; }
+    path = stripTrail(path);
+    if (path === '/') return;
+    if (current === path || current.startsWith(path + '/')) {
+      link.classList.add('is-active');
+    }
+  });
+})();
+
 // Notebook — soft entrance + scroll reveals
 (function () {
   if (typeof gsap === 'undefined') return;
