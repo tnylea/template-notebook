@@ -23,7 +23,7 @@ fields:
   description:
     type: textarea
     label: "Description"
-    default: "I'm Theo — a designer and developer who builds clean, useful products for the web and writes about the process, the decisions, and what I'm learning along the way."
+    default: "I'm Theo — a designer/developer who builds products for the web and writes about the process, the decisions, and what I'm learning along the way."
   primary_button_text:
     type: text
     label: "Primary Button Text"

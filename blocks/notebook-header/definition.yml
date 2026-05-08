@@ -7,7 +7,7 @@ fields:
   logo_initial:
     type: text
     label: "Logo Initial"
-    default: "n"
+    default: "n."
   logo_text:
     type: text
     label: "Logo Wordmark"
