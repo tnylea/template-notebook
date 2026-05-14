@@ -3,6 +3,7 @@ title: "Notebook Footer"
 description: "Editorial footer with newsletter form, link columns, and a small note."
 category: footers
 tags: [notebook, footer]
+template_engine: twig
 fields:
   logo_initial:
     type: text

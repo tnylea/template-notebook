@@ -3,6 +3,7 @@ title: "Notebook Journal Preview"
 description: "3-up grid of recent essays with cover image, date, category tag, headline, and excerpt. Repeater of posts."
 category: features
 tags: [notebook, journal, blog, preview]
+template_engine: twig
 fields:
   eyebrow:
     type: text

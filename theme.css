@@ -45,7 +45,7 @@
   --color-sage-500: #988572;
   --color-sage-700: #544840;
 
-  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
 
   --shadow-paper: 0 1px 1px rgb(43 37 28 / 0.04), 0 6px 14px -4px rgb(43 37 28 / 0.06), 0 18px 32px -10px rgb(43 37 28 / 0.10);
   --shadow-lift:  0 1px 1px rgb(43 37 28 / 0.05), 0 12px 24px -6px rgb(43 37 28 / 0.10), 0 30px 60px -16px rgb(43 37 28 / 0.18);
@@ -92,7 +92,7 @@
   --color-sage-300: #cabdae;
   --color-sage-500: #988572;
   --color-sage-700: #544840;
-  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
 }
 
 /* === Body + display font (always wins) ========================= */
@@ -106,7 +106,7 @@ html { scroll-behavior: smooth; }
 h1.font-display, h2.font-display, h3.font-display, h4.font-display,
 h5.font-display, h6.font-display, p.font-display, span.font-display,
 em.font-display, blockquote.font-display, figcaption.font-display {
-  font-family: "Cormorant Garamond", ui-serif, Georgia, serif !important;
+  font-family: "Playfair Display", ui-serif, Georgia, serif !important;
   font-optical-sizing: auto;
 }
 

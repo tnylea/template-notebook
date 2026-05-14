@@ -3,6 +3,7 @@ title: "Notebook Footer Stats"
 description: "Four-column stat strip just above the footer."
 category: footers
 tags: [notebook, footer, stats]
+template_engine: twig
 fields:
   stat_1_value:
     type: text

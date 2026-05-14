@@ -3,6 +3,7 @@ title: "Notebook Hero"
 description: "Editorial hero — eyebrow tags, italic-emphasis Playfair headline with brush underline, dual CTAs, large rounded portrait, two floating cards (currently + latest essay), and a trusted-by logo row."
 category: heroes
 tags: [notebook, hero]
+template_engine: twig
 fields:
   tag_1:
     type: text
@@ -43,7 +44,7 @@ fields:
   portrait_url:
     type: image
     label: "Portrait Image URL"
-    default: "/notebook/theo.jpg"
+    default: "[[template_media:theo.jpg]]"
   portrait_alt:
     type: text
     label: "Portrait Alt Text"

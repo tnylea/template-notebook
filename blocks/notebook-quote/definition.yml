@@ -3,6 +3,7 @@ title: "Notebook Pull Quote"
 description: "Centered Fraunces pull quote on dotted background with author avatar, name, and title."
 category: features
 tags: [notebook, quote, testimonial]
+template_engine: twig
 fields:
   quote:
     type: textarea

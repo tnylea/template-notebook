@@ -3,6 +3,7 @@ title: "Notebook About Snippet"
 description: "5/7 split with rotated portrait card on the left and a short bio + two side-by-side lists (Recently / Tools) on the right."
 category: features
 tags: [notebook, about]
+template_engine: twig
 fields:
   eyebrow:
     type: text

@@ -10,7 +10,7 @@ theme:
   primary_font: inter
   google_fonts:
     - inter
-    - cormorant-garamond
+    - playfair-display
 slot_blocks:
   banner: notebook-banner
   header: notebook-header

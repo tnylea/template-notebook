@@ -3,6 +3,7 @@ title: "Notebook Featured Work"
 description: "Asymmetric project tile grid (7/5, 5/7 alternating). Repeater of projects with category, title, description, and image."
 category: features
 tags: [notebook, work, portfolio, grid]
+template_engine: twig
 fields:
   eyebrow:
     type: text

@@ -3,6 +3,7 @@ title: "Notebook Dark CTA"
 description: "Rounded dark-ink card with eyebrow, italic-emphasis title, description, primary CTA button, and secondary email link."
 category: cta
 tags: [notebook, cta]
+template_engine: twig
 fields:
   eyebrow:
     type: text
