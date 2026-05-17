@@ -1,9 +1,56 @@
 slug: notebook-portfolio
 title: "Notebook — Personal Blog & Portfolio"
 description: "An editorial, paper-warm personal blog and portfolio template. Sand & cocoa palette, Playfair Display + Inter typography, soft brushed accents, and quietly confident editorial composition."
-version: "0.2.0"
+version: "0.4.0"
 author: "CMS Max"
-layout: notebook-default
+# Single shared layout — pages and blog posts both render through this one.
+# The dynamic notebook-post-content block attached to the content slot only
+# activates when a Blog model is bound (via the dynamic_source: blog check
+# in ThemeService), so static pages flow their own content through the same
+# slot without picking up the editorial wrapper.
+layout: notebook
+post_layout: notebook
+# Slug of the Page that should act as the blog index — wired into
+# BlogsPluginSettings.blog_index_id during install so post URLs become
+# /writings/<slug>.
+blog_index_page: writings
+# Page slugs to remove after install — for templates that don't want the
+# default SampleSiteSeeder cruft (privacy / terms / thank-you / sitemap).
+delete_system_pages:
+  - privacy
+  - terms
+  - thank-you
+  - sitemap
+  # Legacy slug — early notebook installs hand-seeded a /journal Page that
+  # /writings now replaces. Safe to remove; new tenants never had it.
+  - journal
+# Built-in default layouts that don't belong to this template — hidden from
+# the layout picker so the user only sees the layouts the template ships.
+# Non-destructive: rows remain in the DB so any page accidentally pointed
+# at one still renders; they just don't surface in the UI.
+hide_layouts:
+  - default
+  - full-width
+  - sidebar-left
+  - sidebar-right
+  # Legacy layouts from earlier notebook template versions — superseded
+  # by the unified `notebook` layout above. Hidden, not deleted, so any
+  # tenant page that happens to still reference one keeps rendering.
+  - notebook-default
+  - notebook-detail
+  - notebook-post
+# Plugins the template needs in order to fully install. Each is installed +
+# activated up-front via PluginService so blog categories, posts, and plugin
+# settings wiring all run instead of silently skipping when the plugin is
+# missing on a fresh tenant.
+required_plugins:
+  - blogs
+# Blog categories created when the Blogs plugin is installed.
+blog_categories:
+  - { slug: craft, title: Craft }
+  - { slug: process, title: Process }
+  - { slug: type, title: Type }
+  - { slug: field-notes, title: "Field Notes" }
 theme:
   primary_color: "#99694e"
   secondary_color: "#cabdae"
@@ -11,8 +58,20 @@ theme:
   google_fonts:
     - inter
     - playfair-display
+# Slot → block defaults for the layout(s) declared above. footer_stats is
+# intentionally absent — that block now lives as a content block on the
+# home page (only place it makes sense) rather than a global footer chrome.
 slot_blocks:
   banner: notebook-banner
   header: notebook-header
-  footer_stats: notebook-footer-stats
   footer: notebook-footer
+
+# Per-layout slot_blocks — merged on top of the flat slot_blocks above
+# for the named layout only. The dynamic notebook-post-content block
+# attaches to the content slot of every layout it lists here; at render
+# time, ThemeService only activates the block when the bound model's
+# morph class matches the block's `dynamic_source` (i.e. only for blog
+# posts), so pages using the same layout aren't affected.
+layout_slot_blocks:
+  notebook:
+    content: notebook-post-content

@@ -1,0 +1,15 @@
+name: notebook-post-content
+title: "Notebook Post Content"
+description: "Dynamic content block for blog posts. Renders the post's breadcrumbs, title, and body inside the notebook editorial wrapper. The post-specific content comes from the bound model at render time — this template only controls the surrounding chrome (max-width, padding, prose styling). Edit individual posts via Admin → Blogs to change content; edit this block to change the wrapper styling."
+category: system
+# Declared as twig so the in-canvas Monaco code editor opens for this
+# block — the template is just plain HTML + shortcodes, both of which
+# render identically under either engine, so the choice is purely about
+# unlocking the editor UI. Wrapper authors editing this block are
+# almost always tweaking max-width / padding / prose styling, which is
+# exactly what the code editor is for.
+template_engine: twig
+is_dynamic: true
+dynamic_source: blog
+tags: [notebook, post, dynamic]
+fields: {}

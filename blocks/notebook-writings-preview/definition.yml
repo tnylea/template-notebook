@@ -1,14 +1,14 @@
-name: notebook-journal-preview
-title: "Notebook Journal Preview"
+name: notebook-writings-preview
+title: "Notebook Writings Preview"
 description: "3-up grid of recent essays with cover image, date, category tag, headline, and excerpt. Repeater of posts."
 category: features
-tags: [notebook, journal, blog, preview]
+tags: [notebook, writings, blog, preview]
 template_engine: twig
 fields:
   eyebrow:
     type: text
     label: "Eyebrow Text"
-    default: "From the Journal"
+    default: "From the Writings"
   heading:
     type: text
     label: "Heading"
@@ -24,7 +24,7 @@ fields:
   archive_link_url:
     type: url
     label: "Archive Link URL"
-    default: "/journal"
+    default: "/writings"
   posts:
     type: repeater
     label: "Posts (3 recommended)"
@@ -33,7 +33,7 @@ fields:
       url:
         type: url
         label: "Post URL"
-        default: "/journal/example-post"
+        default: "/writings/example-post"
       image_url:
         type: image
         label: "Cover Image URL"

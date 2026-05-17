@@ -1,0 +1,17 @@
+slug: the-quiet-craft-of-shipping
+title: 'The quiet craft of shipping'
+browser_title: 'The quiet craft of shipping — Mara Ellis'
+meta_description: "On the unglamorous, careful work that fills the last 10% of any meaningful project — and why we don't talk about it enough."
+excerpt: "On the unglamorous, careful work that fills the last 10% of any meaningful project — and why we don't talk about it enough."
+publish_start: '2026-04-18 09:00:00'
+category: craft
+html: |
+    <figure class="post-cover"><img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=80" alt="The quiet craft of shipping" /></figure><p>It's 9:47 on a Tuesday and I'm moving a button three pixels to the left, then back to the right, then forward two. I have done this — exactly this — at least eleven times tonight. And I think this is the work.</p>
+    <p>There's a stage in any project where the obvious wins are gone. The shape is right. The thing does what it should. What's left is almost entirely about caring more than is reasonable about edges no one will name.</p>
+    <h2>The boring middle of the end</h2>
+    <p>I used to think shipping was a single moment — a kind of release. The longer I've been doing this, the more I think shipping is a posture you hold for two or three weeks, mostly alone, mostly making decisions that look identical from the outside.</p>
+    <p>A typography pass. A copy pass. A "does this still feel right when I open it on a phone in bed" pass. None of these will make a screenshot. None of these will be in the changelog. And yet, when something feels well-made, it is almost always because someone did them.</p>
+    <blockquote><p>You can&#039;t ship an idea. You ship a hundred small choices that each feel too small to defend.</p></blockquote>
+    <h2>What I&#039;ve started doing instead</h2>
+    <p>I keep a list called <em>"weird detail to fix"</em>. It's usually just one or two lines a day. Anything that catches the eye — an awkward seam, a label that's technically accurate but emotionally wrong, a hover state that betrays the patience of the rest of the page. I don't fix them right away. I let them accumulate, then spend a quiet afternoon at the end of the week sanding the wood.</p>
+    <p>It is, I've realized, the part of the work I find most clarifying. Everything else is a sketch toward this. The sketches are exciting. But the sanding is where the thing becomes itself.</p>

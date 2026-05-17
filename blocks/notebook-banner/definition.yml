@@ -16,7 +16,7 @@ fields:
   link_url:
     type: url
     label: "Link URL"
-    default: "/journal/the-quiet-craft-of-shipping"
+    default: "/writings/the-quiet-craft-of-shipping"
   secondary_text:
     type: text
     label: "Secondary Text"

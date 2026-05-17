@@ -40,7 +40,7 @@ fields:
   secondary_button_url:
     type: url
     label: "Secondary Button URL"
-    default: "/journal"
+    default: "/writings"
   portrait_url:
     type: image
     label: "Portrait Image URL"
@@ -80,7 +80,7 @@ fields:
   essay_url:
     type: url
     label: "Essay Card — URL"
-    default: "/journal/the-quiet-craft-of-shipping"
+    default: "/writings/the-quiet-craft-of-shipping"
   essay_meta:
     type: text
     label: "Essay Card — Meta (e.g. read time)"

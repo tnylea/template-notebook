@@ -2,7 +2,7 @@ slug: "work/pebble-os"
 title: "Pebble OS"
 browser_title: "Pebble OS — A calmer desktop concept · Theo Okafor"
 meta_description: "A six-month speculative design exploration: a desktop environment that respects attention. No badges, no unread counts, no algorithmic feeds."
-layout: notebook-detail
+layout: notebook
 content:
     - html: _sections/work/case-study/stub-pebble.html
       name: "Pebble OS — Case Study"

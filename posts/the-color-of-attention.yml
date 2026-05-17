@@ -1,0 +1,16 @@
+slug: the-color-of-attention
+title: 'The color of attention'
+browser_title: 'The color of attention — Mara Ellis'
+meta_description: "Why the most expensive thing on a screen isn't the pixels — and how a single muted accent can recover an interface."
+excerpt: "Why the most expensive thing on a screen isn't the pixels — and how a single muted accent can recover an interface."
+publish_start: '2025-12-02 09:00:00'
+category: type
+html: |
+    <figure class="post-cover"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b8?auto=format&fit=crop&w=1600&q=80" alt="The color of attention" /></figure><p>I've been thinking about color budgets. The unspoken accounting of how much of the user's attention any given screen is allowed to spend.</p>
+    <p>Most interfaces overspend. Every primary button is loud. Every status badge is loud. Every notification is loud. By the time the actual content arrives, the screen has already shouted at you eight times. There's nothing left for the work.</p>
+    <h2>A small experiment</h2>
+    <p>I once redesigned a dashboard by doing exactly one thing: muting all of the colors except <em>one</em> accent. The numbers stayed the same. The chart types stayed the same. The information density stayed the same. But suddenly your eye knew where to go. The dashboard had finally chosen what it wanted you to look at.</p>
+    <p>The before-and-after wasn't a visual upgrade. It was a budgetary one.</p>
+    <blockquote><p>If everything is highlighted, nothing is highlighted. Color is a finite resource.</p></blockquote>
+    <h2>A rule of thumb I use now</h2>
+    <p>On any given screen, ask: what is the one thing the user is here to do? Then give that one thing your most expressive color and give everything else permission to be quiet. The result feels less designed and more designed. Both are correct.</p>

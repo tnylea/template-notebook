@@ -20,7 +20,7 @@ fields:
   stat_2_label:
     type: text
     label: "Stat 2 Label"
-    default: "Essays in the journal"
+    default: "Essays published"
   stat_3_value:
     type: text
     label: "Stat 3 Value"

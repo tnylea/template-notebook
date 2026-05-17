@@ -24,11 +24,11 @@ fields:
   nav_label_2:
     type: text
     label: "Nav 2 Label"
-    default: "Journal"
+    default: "Writings"
   nav_url_2:
     type: url
     label: "Nav 2 URL"
-    default: "/journal"
+    default: "/writings"
   nav_label_3:
     type: text
     label: "Nav 3 Label"

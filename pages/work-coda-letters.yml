@@ -2,7 +2,7 @@ slug: "work/coda-letters"
 title: "Coda"
 browser_title: "Coda — A quarterly letter on craft · Theo Okafor"
 meta_description: "Co-founded, edited, and designed quarterly print letters on craft, work, and the long view. 3,400 paid subscribers and counting."
-layout: notebook-detail
+layout: notebook
 content:
     - html: _sections/work/case-study/stub-coda.html
       name: "Coda — Case Study"
