@@ -2,7 +2,7 @@ slug: "now"
 title: "Now"
 browser_title: "Now — What Theo Okafor is focused on this month"
 meta_description: "Inspired by the /now movement (nownownow.com) — a short page on what I'm reading, building, listening to, and thinking about right now."
-layout: notebook
+layout: default
 content:
     - html: _sections/now/page.html
       name: "Now — Single Page"

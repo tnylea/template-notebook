@@ -2,7 +2,7 @@ slug: "work/marginalia"
 title: "Marginalia"
 browser_title: "Marginalia — Annotation tool for slow readers · Theo Okafor"
 meta_description: "A browser extension that let you mark up the web with a small set of expressive marks. Quietly used by a devoted audience between 2020 and 2022."
-layout: notebook
+layout: default
 content:
     - html: _sections/work/case-study/stub-marginalia.html
       name: "Marginalia — Case Study"

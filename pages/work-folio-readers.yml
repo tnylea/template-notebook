@@ -2,7 +2,7 @@ slug: "work/folio-readers"
 title: "Folio"
 browser_title: "Folio — A quieter reading app · Theo Okafor"
 meta_description: "Product design for Folio — a longform reader that earns its place on your home screen by demanding less of it."
-layout: notebook
+layout: default
 content:
     - html: _sections/work/case-study/stub-folio.html
       name: "Folio — Case Study"

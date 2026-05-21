@@ -2,7 +2,7 @@ slug: "writings"
 title: "Writings"
 browser_title: "Writings — Essays on craft, process & type"
 meta_description: "Slow-cooked thoughts on craft, design, type, and the patient business of making — a working collection of essays and field notes."
-layout: notebook
+layout: default
 content:
     - html: _sections/writings/hero.html
       name: "Writings — Hero"

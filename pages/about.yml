@@ -2,7 +2,7 @@ slug: "about"
 title: "About"
 browser_title: "About Theo Okafor — Designer, Builder & Internet Maker · Brooklyn, NY"
 meta_description: "Theo Okafor is a designer and builder based in Brooklyn, New York. He ships patient products on the open web, co-writes Coda the newsletter, and is the dad of two who keep him honest."
-layout: notebook
+layout: default
 content:
     - html: _sections/about/hero.html
       name: "About — Hero"

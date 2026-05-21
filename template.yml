@@ -4,12 +4,17 @@ description: "An editorial, paper-warm personal blog and portfolio template. San
 version: "0.4.0"
 author: "CMS Max"
 # Single shared layout — pages and blog posts both render through this one.
+# Named `default` because from the tenant's perspective this IS the default
+# layout for the site (their active template defines what "default" means).
+# The installer's updateOrCreate keys on layout_name, so this overwrites the
+# stock built-in `default` layout's HTML with notebook's chrome on install.
+#
 # The dynamic notebook-post-content block attached to the content slot only
 # activates when a Blog model is bound (via the dynamic_source: blog check
 # in ThemeService), so static pages flow their own content through the same
 # slot without picking up the editorial wrapper.
-layout: notebook
-post_layout: notebook
+layout: default
+post_layout: default
 # Slug of the Page that should act as the blog index — wired into
 # BlogsPluginSettings.blog_index_id during install so post URLs become
 # /writings/<slug>.
@@ -29,13 +34,13 @@ delete_system_pages:
 # Non-destructive: rows remain in the DB so any page accidentally pointed
 # at one still renders; they just don't surface in the UI.
 hide_layouts:
-  - default
   - full-width
   - sidebar-left
   - sidebar-right
   # Legacy layouts from earlier notebook template versions — superseded
-  # by the unified `notebook` layout above. Hidden, not deleted, so any
+  # by the unified `default` layout above. Hidden, not deleted, so any
   # tenant page that happens to still reference one keeps rendering.
+  - notebook
   - notebook-default
   - notebook-detail
   - notebook-post
@@ -73,5 +78,5 @@ slot_blocks:
 # morph class matches the block's `dynamic_source` (i.e. only for blog
 # posts), so pages using the same layout aren't affected.
 layout_slot_blocks:
-  notebook:
+  default:
     content: notebook-post-content

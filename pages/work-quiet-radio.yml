@@ -2,7 +2,7 @@ slug: "work/quiet-radio"
 title: "Quiet Radio"
 browser_title: "Quiet Radio — Ambient music streaming · Theo Okafor"
 meta_description: "A two-year side project: a small ambient music streaming app with six hand-curated channels and no algorithm. Sunset gracefully in 2023."
-layout: notebook
+layout: default
 content:
     - html: _sections/work/case-study/stub-quiet.html
       name: "Quiet Radio — Case Study"

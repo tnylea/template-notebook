@@ -2,7 +2,7 @@ slug: ""
 title: "Home"
 browser_title: "Theo Okafor — Designer, Builder & Internet Maker · Brooklyn, NY"
 meta_description: "The personal notebook of Theo Okafor — a designer and builder making things for the web. Essays, projects, and small experiments at the intersection of craft and code."
-layout: notebook
+layout: default
 content:
     - block: notebook-hero
       name: "Home — Hero"
